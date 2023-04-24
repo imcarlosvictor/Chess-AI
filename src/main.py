@@ -2,15 +2,24 @@ import pygame
 import sys
 
 from const import *
+# from square import *
+from board import *
 
 
 class Main:
     def __init__(self):
         pygame.init()
         pygame.display.set_caption('Chess Game')
-        self.screen = pygame.display.set_mode((900,900))
+        self.screen = pygame.display.set_mode((800,800))
         self.clock = pygame.time.Clock()
         self.running = True
+
+        self.screen.fill('black')
+        self.board = Board(self.screen)
+        self.board.create()
+        pygame.display.flip()
+
+#         self.square = Square(self.screen, 0, 0, 0 , 'black')
 
     def mainloop(self):
         while self.running:
@@ -18,10 +27,11 @@ class Main:
                 if event.type == pygame.QUIT:
                     self.running = False
 
-            # Fill screen with color
-            self.screen.fill("white")
+            # # Fill screen with color
+            # self.screen.fill("white")
 
             # RENDER GAME 
+            # self.square.create_square()
 
 
             # flip() the display to put work to screen
