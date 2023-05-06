@@ -16,18 +16,19 @@ class Board:
                 self.square = Square(self.surface, Xpos, Ypos)
 
                 # Color squares accordingly
+                color = ''
                 if row == 1 or row % 2 != 0:
-                    self.square.create('black')
+                    color = 'black'
                     if col == 1 or col % 2 != 0:
-                        self.square.create('white')
+                        color = 'white'
                 elif row == 0 or row % 2 == 0:
-                    self.square.create('white')
+                    color = 'white'
                     if col == 1 or col % 2 != 0:
-                        self.square.create('black')
+                        color = 'black'
+                self.square.create(color)
 
                 self.squares_list.append(self.square)
                 count = count + 1
-        pass
 
     def add_pieces():
         pass
