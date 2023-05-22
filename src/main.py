@@ -33,7 +33,6 @@ class Main:
             # RENDER GAME 
             # self.square.create_square()
 
-
             # flip() the display to put work to screen
             pygame.display.flip()
 

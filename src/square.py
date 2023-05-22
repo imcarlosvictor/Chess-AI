@@ -18,5 +18,3 @@ class Square:
             rgb = (119,149,87)
         # Draw square on screen
         pygame.draw.rect(self.surface, rgb, pygame.Rect(self.row, self.col, SQSIZE, SQSIZE))
-
-

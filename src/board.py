@@ -30,15 +30,21 @@ class Board:
                 self.squares_list.append(self.square)
                 count = count + 1
 
-    def add_pieces():
+        self.add_pieces()
+
+    def move(self):
         pass
 
-    def promote_piece():
+    def add_pieces(self):
+        pawn = pygame.transform.scale(pygame.image.load('../img/pawn_white.png'), [400, 400])
+        self.surface.blit(pawn, [0,0])
+
+    def promote_piece(self):
         pass
 
-    def valid_move():
+    def valid_move(self):
         pass
 
-    def calc_move():
+    def calc_move(self):
         pass
 
