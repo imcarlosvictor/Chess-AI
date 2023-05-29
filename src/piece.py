@@ -1,19 +1,28 @@
+import os
+
+
 class Piece:
     def __init__(self, name, colour, value, moved, texture=NONE, texture_rect=NONE):
         self.name = name
         self.color = colour
         self.value = value
+        self.moves = [] # Store previous moves
         self.moved = moved
         self.texture = texture
+        self.set_texture()
         self.texture_rect = texture_rect
 
-        self.value_sign = 1 if 'white' else -1
+        # Values for white and black pieces
+        value_sign = 1 if 'white' else -1
+        self.value = value * value_sign
 
-    def add_move(self):
-        pass
+    def set_texture(self, size=80):
+        "Get the respective image for the chess piece."
 
-    def set_textures(self):
-        pass
+        self.texture = os.path.join(f'img/{self.color}_{self.name}.png')
+
+    def add_move(self, move):
+        self.moves.append(move)
 
 
 class Pawn(Piece):

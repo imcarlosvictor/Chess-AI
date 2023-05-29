@@ -1,5 +1,6 @@
 from const import *
 from square import *
+from piece import *
 
 
 class Board:
@@ -35,9 +36,23 @@ class Board:
     def move(self):
         pass
 
-    def add_pieces(self):
-        pawn = pygame.transform.scale(pygame.image.load('../img/pawn_white.png'), [400, 400])
-        self.surface.blit(pawn, [0,0])
+    def add_pieces(self, color):
+        if color == 'white':
+            # place white at the bottom of the board
+            row_pawn, row_other = (6,7)
+        else:
+            row_pawn, row_other = (1,0)
+
+        # Pawns
+        for col in range(COLS):
+            self.squares[row_pawn][col] = Square(Pawn(color), row_pawn, col)
+
+        # Knights
+
+
+
+        # pawn = pygame.transform.scale(pygame.image.load('../img/pawn_white.png'), [400, 400])
+        # self.surface.blit(pawn, [0,0])
 
     def promote_piece(self):
         pass
