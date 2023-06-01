@@ -4,10 +4,10 @@ from const import *
 
 
 class Square:
-    def __init__(self, surface, row, col):
-        self.surface = surface
+    def __init__(self, row, col, piece=None):
         self.row = row
         self.col = col
+        self.piece = piece
         # self.alphacol = alphacol
 
     def create(self, color):

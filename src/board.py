@@ -8,13 +8,17 @@ class Board:
         self.surface = surface
         self.squares_list = []
 
+        self.create()
+        self.add_pieces('white')
+        self.add_pieces('black')
+
     def create(self):
         count = 1
         for row in range(ROWS):
             for col in range(COLS):
                 Xpos = col * 100
                 Ypos = row * 100
-                self.square = Square(self.surface, Xpos, Ypos)
+                self.square = Square(Xpos, Ypos, self.surface)
 
                 # Color squares accordingly
                 color = ''
@@ -31,8 +35,6 @@ class Board:
                 self.squares_list.append(self.square)
                 count = count + 1
 
-        self.add_pieces()
-
     def move(self):
         pass
 
@@ -45,11 +47,25 @@ class Board:
 
         # Pawns
         for col in range(COLS):
-            self.squares[row_pawn][col] = Square(Pawn(color), row_pawn, col)
+            self.square_list[row_pawn][col] = Square(row_pawn, col, Pawn(color))
 
         # Knights
+        self.squares_list[1] = Square(row_other, 1, Knight(color))
+        self.squares_list[6] = Square(row_other, 6, Knight(color))
 
+        # Bishops
+        self.squares_list[2] = Square(row_other, 2, Bishop(color))
+        self.squares_list[5] = Square(row_other, 5, Bishop(color))
 
+        # Rooks 
+        self.squares_list[0] = Square(row_other, 0, Rook(color))
+        self.squares_list[7] = Square(row_other, 7, Rook(color))
+
+        # Queen 
+        self.squares_list[3] = Square(row_other, 3, Queen(color))
+
+        # King 
+        self.squares_list[4] = Square(row_other, 4, King(color))
 
         # pawn = pygame.transform.scale(pygame.image.load('../img/pawn_white.png'), [400, 400])
         # self.surface.blit(pawn, [0,0])
