@@ -5,7 +5,6 @@ class Piece:
     def __init__(self, name, color, value, texture=None, texture_rect=None):
         self.name = name
         self.color = color
-        self.value = value
         self.moves = [] # Store previous moves
         self.moved = False 
         self.texture = texture

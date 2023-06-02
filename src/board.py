@@ -21,16 +21,21 @@ class Board:
                 self.square = Square(Xpos, Ypos, self.surface)
 
                 # Color squares accordingly
-                color = ''
+                # color = ''
+                rgb = ()
                 if row == 1 or row % 2 != 0:
-                    color = 'black'
+                    # black
+                    rgb = (119,149,87)
                     if col == 1 or col % 2 != 0:
-                        color = 'white'
+                        # white
+                        rgb = (239,238,210) # white
                 elif row == 0 or row % 2 == 0:
-                    color = 'white'
+                    # white
+                    rgb = (239,238,210)
                     if col == 1 or col % 2 != 0:
-                        color = 'black'
-                self.square.create(color)
+                        # black
+                        rgb = (119,149,87)
+                pygame.draw.rect(self.surface, rgb, pygame.Rect(Xpos, Ypos, SQSIZE, SQSIZE))
 
                 self.squares_list.append(self.square)
                 count = count + 1
