@@ -25,7 +25,7 @@ class Piece:
 
 
 class Pawn(Piece):
-    def __init___(self, color):
+    def __init__(self, color):
         if color == 'white':
             self.dir = -1
         elif color == 'black':

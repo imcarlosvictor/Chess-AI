@@ -10,7 +10,7 @@ class Board:
 
         self.create()
         self.add_pieces('white')
-        self.add_pieces('black')
+        # self.add_pieces('black')
 
     def create(self):
         count = 1
@@ -52,7 +52,7 @@ class Board:
 
         # Pawns
         for col in range(COLS):
-            self.square_list[row_pawn][col] = Square(row_pawn, col, Pawn(color))
+            self.squares_list[row_pawn][col] = Square(row_pawn, col, Pawn(color))
 
         # Knights
         self.squares_list[1] = Square(row_other, 1, Knight(color))
